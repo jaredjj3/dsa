@@ -6,6 +6,9 @@
   "repository": "git@github.com:jaredjj3/dsa.git",
   "author": "Jared Johnson <jared@jaredjohnson.dev>",
   "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
   "dependencies": {
     "jest": "^29.2.2",
     "ts-jest": "^29.0.3",
