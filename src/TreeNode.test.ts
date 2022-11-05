@@ -1,7 +1,7 @@
 import { TreeNode } from './TreeNode';
 
 describe(TreeNode, () => {
-  it('can be instantiated without crashing', () => {
+  it('instantiates without crashing', () => {
     expect(() => new TreeNode(1)).not.toThrow();
   });
 });
