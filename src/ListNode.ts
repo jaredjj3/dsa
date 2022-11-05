@@ -1,3 +1,6 @@
+/**
+ * A doubly-linked list.
+ */
 export class ListNode<T> {
   private next: ListNode<T> | null = null;
   private prev: ListNode<T> | null = null;
