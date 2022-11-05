@@ -38,6 +38,14 @@ export class LinkedList<T> {
     }
   }
 
+  isTampered(): boolean {
+    let tail = null;
+    for (const node of this) {
+      tail = node;
+    }
+    return tail !== this.tail;
+  }
+
   /**
    * Returns how many unique nodes are in the list, even in cyclic LinkedLists.
    */
@@ -53,15 +61,32 @@ export class LinkedList<T> {
   }
 
   add(node: ListNode<T>) {
-    this.tail?.setNext(node);
     if (!this.head) {
       this.head = node;
-    } else if (!this.tail) {
-      this.head.setNext(node);
+      this.tail = node;
     } else {
-      this.tail.setNext(node);
+      this.tail!.setNext(node);
       this.tail = node;
     }
+  }
+
+  insert(index: number, node: ListNode<T>) {
+    let ndx = 0;
+    let prevNdx = index - 1;
+    let prev: ListNode<T> | null = null;
+    for (const probe of this) {
+      if (ndx === prevNdx) {
+        prev = probe;
+        break;
+      }
+      ndx++;
+    }
+    if (!prev) {
+      throw new Error(`could not find node before index: ${index}`);
+    }
+    const next = prev.getNext();
+    prev.setNext(node);
+    node.setNext(next);
   }
 
   [Symbol.iterator](): Iterator<ListNode<T> | null> {
@@ -78,9 +103,9 @@ class LinkedListIterator<T> implements Iterator<ListNode<T> | null> {
 
   next(): IteratorResult<ListNode<T> | null> {
     const value = this.node;
-    const next = this.node?.getNext() ?? null;
-    this.node = next;
-    if (next) {
+    const next = this.node?.getNext();
+    this.node = next ?? null;
+    if (value) {
       return { done: false, value };
     } else {
       return { done: true, value };
