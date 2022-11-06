@@ -1,5 +1,3 @@
-import { TreeNode } from './TreeNode';
-
 export class BTreeNode<T> {
   constructor(
     public readonly val: T,
