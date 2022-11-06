@@ -23,13 +23,13 @@ export class MinHeap {
   }
 
   public add(node: number) {
-    this.nodes[this.size - 1] = node;
+    this.nodes[this.size] = node;
     this.heapifyUp();
   }
 
   private heapifyUp() {
     let index = this.size - 1;
-    while (this.hasParent(index) && this.parent(index)! > this.nodes[index]) {
+    while (this.hasParent(index) && this.parent(index) > this.nodes[index]) {
       this.swap(this.getParentIndex(index), index);
       index = this.getParentIndex(index);
     }
@@ -39,7 +39,7 @@ export class MinHeap {
     let index = 0;
     while (this.hasLeftChild(index)) {
       let smallerChildIndex = this.getLeftChildIndex(index);
-      if (this.hasRightChild(index) && this.rightChild(index)! < this.leftChild(index)!) {
+      if (this.hasRightChild(index) && this.rightChild(index) < this.leftChild(index)) {
         smallerChildIndex = this.getRightChildIndex(index);
       }
       if (this.nodes[index] < this.nodes[smallerChildIndex]) {
@@ -64,7 +64,7 @@ export class MinHeap {
   }
 
   private getParentIndex(childIndex: number) {
-    return (childIndex - 1) / 2;
+    return Math.floor((childIndex - 1) / 2);
   }
 
   private hasLeftChild(index: number) {
@@ -79,15 +79,15 @@ export class MinHeap {
     return this.getParentIndex(index) >= 0;
   }
 
-  private leftChild(index: number): number | null {
-    return this.nodes[this.getLeftChildIndex(index)] ?? null;
+  private leftChild(index: number): number {
+    return this.nodes[this.getLeftChildIndex(index)];
   }
 
-  private rightChild(index: number): number | null {
-    return this.nodes[this.getRightChildIndex(index)] ?? null;
+  private rightChild(index: number): number {
+    return this.nodes[this.getRightChildIndex(index)];
   }
 
-  private parent(index: number): number | null {
+  private parent(index: number): number {
     return this.nodes[this.getParentIndex(index)];
   }
 }

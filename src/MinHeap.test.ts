@@ -1,29 +1,80 @@
 import { MinHeap } from './MinHeap';
 
 describe(MinHeap, () => {
+  let heap: MinHeap;
+
+  beforeEach(() => {
+    heap = new MinHeap();
+  });
+
   describe('size', () => {
-    it.todo('returns the size of the min heap');
+    it('returns the size of the min heap', () => {
+      heap.add(0);
+      expect(heap.size).toBe(1);
+    });
   });
 
   describe('peek', () => {
-    it.todo('returns the min node');
+    it('returns the min node', () => {
+      heap.add(0);
+      heap.add(1);
+      heap.add(-1);
 
-    it.todo('can be called multiple times without affecting the structure');
+      expect(heap.peek()).toBe(-1);
+    });
 
-    it.todo('returns the next min node after polling');
+    it('can be called multiple times without affecting the structure', () => {
+      heap.add(0);
 
-    it.todo('throws for an empty min heap');
+      const peek1 = heap.peek();
+      const peek2 = heap.peek();
+
+      expect(peek1).toBe(0);
+      expect(peek2).toBe(0);
+    });
+
+    it('returns the next min node after polling', () => {
+      heap.add(0);
+      heap.add(1);
+
+      heap.poll();
+
+      expect(heap.peek()).toBe(1);
+    });
+
+    it('throws for an empty min heap', () => {
+      expect(() => heap.peek()).toThrow();
+    });
   });
 
   describe('poll', () => {
-    it.todo('returns the min node');
+    it('returns the min node', () => {
+      heap.add(0);
+      heap.add(1);
+      heap.add(-1);
 
-    it.todo('returns the next min node after polling');
+      expect(heap.poll()).toBe(-1);
+    });
 
-    it.todo('throws for an empty min heap');
+    it('returns the next min node after polling', () => {
+      heap.add(0);
+      heap.add(1);
+
+      heap.poll();
+
+      expect(heap.poll()).toBe(1);
+    });
+
+    it('throws for an empty min heap', () => {
+      expect(() => heap.poll()).toThrow();
+    });
   });
 
   describe('add', () => {
-    it.todo('adds a node to the heap');
+    it('adds a node to the heap', () => {
+      heap.add(0);
+
+      expect(heap.size).toBe(1);
+    });
   });
 });
