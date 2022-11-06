@@ -73,7 +73,6 @@ describe(MinHeap, () => {
   describe('add', () => {
     it('adds a node to the heap', () => {
       heap.add(0);
-
       expect(heap.size).toBe(1);
     });
   });
