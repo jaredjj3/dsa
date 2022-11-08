@@ -1,10 +1,13 @@
 import { Queue } from './Queue';
-import { TreeNode } from './TreeNode';
 
-export type Predicate<T> = (node: TreeNode<T>) => boolean;
+export type GraphLike<T> = {
+  children: T[];
+};
 
-export const bfs = <T>(root: TreeNode<T>, predicate: Predicate<T>): TreeNode<T> | null => {
-  const queue = new Queue<TreeNode<T>>();
+export type BfsPredicate<T extends GraphLike<T>> = (node: T) => boolean;
+
+export const bfs = <T extends GraphLike<T>>(root: T, predicate: BfsPredicate<T>): T | null => {
+  const queue = new Queue<T>();
 
   queue.enqueue(root);
   while (!queue.isEmpty()) {
