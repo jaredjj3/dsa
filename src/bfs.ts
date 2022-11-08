@@ -1,8 +1,5 @@
 import { Queue } from './Queue';
-
-export type GraphLike<T> = {
-  children: T[];
-};
+import { GraphLike } from './types';
 
 export type BfsPredicate<T extends GraphLike<T>> = (node: T) => boolean;
 
@@ -16,7 +13,7 @@ export const bfs = <T extends GraphLike<T>>(root: T, predicate: BfsPredicate<T>)
       return node;
     }
     for (const child of node.children) {
-      queue.enqueue(child);
+      queue.enqueue(child as T);
     }
   }
 
