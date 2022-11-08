@@ -1,5 +1,5 @@
-import { GraphLike } from './types';
+import { Graphable } from './types';
 
-export class TreeNode<T> implements GraphLike<T> {
+export class TreeNode<T> implements Graphable<T> {
   constructor(public readonly val: T, public children: Array<TreeNode<T>> = []) {}
 }

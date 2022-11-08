@@ -1,6 +1,6 @@
-import { GraphLike } from './types';
+import { Graphable } from './types';
 
-export class BTreeNode<T> implements GraphLike<T> {
+export class BTreeNode<T> implements Graphable<T> {
   constructor(
     public readonly val: T,
     public left: BTreeNode<T> | null = null,

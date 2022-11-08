@@ -1,3 +1,3 @@
-export interface GraphLike<T> {
-  children: GraphLike<T>[];
+export interface Graphable<T> {
+  children: Graphable<T>[];
 }
