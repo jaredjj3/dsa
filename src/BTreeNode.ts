@@ -7,7 +7,7 @@ export class BTreeNode<T> implements Graphable<T> {
     public right: BTreeNode<T> | null = null
   ) {}
 
-  get children(): BTreeNode<T>[] {
+  getChildren(): BTreeNode<T>[] {
     const children = new Array<BTreeNode<T>>();
     if (this.left) {
       children.push(this.left);

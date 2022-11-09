@@ -1,3 +1,3 @@
 export interface Graphable<T> {
-  children: Graphable<T>[];
+  getChildren(): Graphable<T>[];
 }

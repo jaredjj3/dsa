@@ -12,7 +12,7 @@ export const bfs = <T extends Graphable<T>>(root: T, predicate: BfsPredicate<T>)
     if (predicate(node)) {
       return node;
     }
-    for (const child of node.children) {
+    for (const child of node.getChildren()) {
       queue.enqueue(child as T);
     }
   }
