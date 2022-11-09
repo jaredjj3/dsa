@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit --watch"
   },
   "dependencies": {
     "@types/jest": "^29.2.2",
