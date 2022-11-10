@@ -1,7 +1,11 @@
 import { subsets } from './subsets';
 
 describe('subsets', () => {
-  describe.each([{ name: 'recursive', subsets: subsets.recursive }])(`subsets variant: '$name'`, (spec) => {
+  describe.each([
+    { name: 'default', subsets: subsets.default },
+    { name: 'iterative', subsets: subsets.iterative },
+    { name: 'recursive', subsets: subsets.recursive },
+  ])(`subsets variant: '$name'`, (spec) => {
     const subsets = spec.subsets;
 
     it.each([
