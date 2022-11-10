@@ -22,7 +22,7 @@ const iterative = <T>(items: T[]): T[][] => {
     },
   };
 
-  while (frame) {
+  while (true) {
     const items = frame.args[0];
     const onReturn = frame.onReturn;
 
