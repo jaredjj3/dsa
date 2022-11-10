@@ -9,12 +9,7 @@ const recursive = <T>(items: T[]): T[][] => {
   return [...subs, ...subs.map((sub) => [...sub, last])];
 };
 
-const iterative = <T>(items: T[]): T[] => {
-  return [];
-};
-
 export const combinations = {
-  default: iterative,
-  iterative,
+  default: recursive,
   recursive,
 };
