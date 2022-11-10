@@ -15,29 +15,28 @@ const recursive = <T>(items: T[]): T[][] => {
 const iterative = <T>(items: T[]): T[][] => {
   let ret = new Array<Array<T>>();
 
-  const stack = new Stack<StackFrame<[items: T[]], T[][]>>();
-  stack.push({
+  let frame: StackFrame<[items: T[]], T[][]> = {
     args: [items],
     onReturn: (subs) => {
       ret = subs;
     },
-  });
+  };
 
-  while (!stack.isEmpty()) {
-    const frame = stack.pop()!;
+  while (frame) {
     const items = frame.args[0];
     const onReturn = frame.onReturn;
 
     if (items.length === 0) {
       onReturn([[]]);
+      break;
     } else {
-      stack.push({
+      frame = {
         args: [items.slice(0, -1)],
         onReturn: (subs: T[][]) => {
           const last = items[items.length - 1];
           onReturn([...subs, ...subs.map((sub) => [...sub, last])]);
         },
-      });
+      };
     }
   }
 
