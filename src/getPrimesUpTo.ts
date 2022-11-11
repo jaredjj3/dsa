@@ -1,4 +1,6 @@
 export const getPrimesUpTo = (n: number): number[] => {
+  // Sieve of Eratosthenes
+  // https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
   const p = new Array<boolean>(n + 1).fill(true);
   for (let i = 2; i * i <= n; i++) {
     if (p[i]) {
