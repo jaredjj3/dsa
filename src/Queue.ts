@@ -1,5 +1,10 @@
 import { ListNode } from './ListNode';
 
+/**
+ * A unbounded queue data structure.
+ *
+ * This queue supports enqueuing and dequeuing in constant time.
+ */
 export class Queue<T> {
   private readonly head: ListNode<T> = new ListNode(Symbol.for('head') as any);
   private readonly tail: ListNode<T> = new ListNode(Symbol.for('tail') as any);
