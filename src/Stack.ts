@@ -1,3 +1,6 @@
+/**
+ * An unbounded stack data structure.
+ */
 export class Stack<T> {
   private arr = new Array<T>();
 
