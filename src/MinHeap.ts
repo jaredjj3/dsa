@@ -1,3 +1,6 @@
+/**
+ * A minimum heap.
+ */
 export class MinHeap {
   private nodes = new Array<number>();
 
