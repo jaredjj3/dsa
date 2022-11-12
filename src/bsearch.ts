@@ -66,6 +66,9 @@ const iterative =
     return -1;
   };
 
+/**
+ * Performs the binary search algorithm on a sorted array of items.
+ */
 export const bsearch = {
   default: iterative,
   iterative,
