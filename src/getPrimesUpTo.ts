@@ -1,3 +1,6 @@
+/**
+ * Computes prime numbers up to n.
+ */
 export const getPrimesUpTo = (n: number): number[] => {
   // Sieve of Eratosthenes
   // https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
