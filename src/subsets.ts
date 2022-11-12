@@ -1,4 +1,3 @@
-import { Stack } from './Stack';
 import { StackFrame } from './types';
 
 export type SubsetsGenerator<T> = (items: T[]) => T[];
@@ -43,6 +42,9 @@ const iterative = <T>(items: T[]): T[][] => {
   return ret;
 };
 
+/**
+ * Calculates the subsets of an array of items.
+ */
 export const subsets = {
   default: iterative,
   iterative,
