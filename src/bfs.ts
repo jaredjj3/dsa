@@ -3,6 +3,9 @@ import { Graphable } from './types';
 
 export type BfsPredicate<T extends Graphable<T>> = (node: T) => boolean;
 
+/**
+ * Performs a breadth-first-search on a Graphable object.
+ */
 export const bfs = <T extends Graphable<T>>(root: T, predicate: BfsPredicate<T>): T | null => {
   const queue = new Queue<T>();
 
