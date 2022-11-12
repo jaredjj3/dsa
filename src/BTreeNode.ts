@@ -1,5 +1,8 @@
 import { Graphable } from './types';
 
+/**
+ * A binary tree node.
+ */
 export class BTreeNode<T> implements Graphable<T> {
   constructor(
     public readonly val: T,
