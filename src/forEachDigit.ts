@@ -1,3 +1,6 @@
+/**
+ * Extracts digits from right-to-left, and calls the supplied callback with each digit.
+ */
 export const forEachDigit = (n: number, callback: (n: number) => void) => {
   if (n < 0) {
     throw new Error('does not work on negative numbers');
