@@ -10,7 +10,7 @@ const recursive = <T>(items: T[]): T[][] => {
   const results: T[][] = [];
 
   for (const perm of perms) {
-    for (let i = 0; i <= perms.length; i++) {
+    for (let i = 0; i <= perm.length; i++) {
       results.push([...perm.slice(0, i), probe, ...perm.slice(i)]);
     }
   }
